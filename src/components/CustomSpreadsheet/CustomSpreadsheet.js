@@ -2,7 +2,7 @@ import Spreadsheet from 'react-spreadsheet';
 import { useState, useEffect} from 'react';
 import supabase from '../../supabase';
 
-const CustomSpreadsheet = () => {
+const CustomSpreadsheet = ({spreadsheet_id}) => {
   const [cells, setCells] = useState([]);
   const [activeCell,setActiveCell] = useState({value:""});
   const [activeCellCoords,setActiveCellCoords] = useState({
@@ -28,7 +28,8 @@ const CustomSpreadsheet = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await supabase.from('spreadsheets').select('cells').eq('id',1);
+      const { data } = await supabase.from('spreadsheets').select('cells').eq('id',spreadsheet_id);
+      debugger
       setActiveCell(data[0].cells.cells[0][0]);
       setCells(data[0].cells.cells);
     };
@@ -68,7 +69,7 @@ const CustomSpreadsheet = () => {
     };
 
     subscribeToCellChanges();
-  }, []);  
+  }, [spreadsheet_id]);  
   
   
 
@@ -89,7 +90,7 @@ const CustomSpreadsheet = () => {
       if(cells.length>0){
         await supabase.from('spreadsheets').update({cells:{
           cells:cells
-        }}).eq('id',1).select();
+        }}).eq('id',spreadsheet_id).select();
       }
     }
     updateSupaBase();
