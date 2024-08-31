@@ -19,7 +19,8 @@ const CustomSpreadsheet = () => {
 
   const handleUpdate = (payload) => {
     console.log('Update received!', payload);
-    setCells(payload.new.cells.cells);
+    debugger
+    if(payload.new.id===id) setCells(payload.new.cells.cells);
   };
 
   const handleDelete = (payload) => {
