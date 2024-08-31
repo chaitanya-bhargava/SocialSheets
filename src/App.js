@@ -1,4 +1,3 @@
-import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -9,8 +8,6 @@ import HomePage from './components/HomePage/HomePage';
 
 function App() {
   const isAuthenticated = useSelector((state) => state.authReducer.isAuthenticated);
-  debugger
-
   return (
     <Router>
       <Routes>

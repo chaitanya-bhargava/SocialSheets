@@ -31,7 +31,7 @@ const MySpreadsheets = () => {
         .select("spreadsheet_id,spreadsheets (name)")
         .eq("user_id", user.id)
         .eq("owner",true);
-        debugger
+        
       setSpreadsheets(response.data);
       setSpreadsheetName(''); // Clear the input field after submission
       closeModal();
@@ -57,7 +57,7 @@ const MySpreadsheets = () => {
         .select("spreadsheet_id,spreadsheets (name)")
         .eq("user_id", user.id)
         .eq("owner",true);
-      debugger
+      
       setSpreadsheets(data);
     };
 
@@ -67,6 +67,7 @@ const MySpreadsheets = () => {
   return (
     <>
       <button className="create-button" onClick={openModal}>Create Spreadsheet</button>
+      <div className="divider"></div>
       <div className="spreadsheet-cards">
         {spreadsheets.map((item) => (
           <div

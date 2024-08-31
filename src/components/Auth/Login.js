@@ -22,12 +22,13 @@ const Login = () => {
     });
 
     console.log(data)
-    debugger
+    
     if (error) {
       dispatch(loginFailure(error.message));
       setError(error.message)
     } else {
       dispatch(loginSuccess(data.user));
+      
       navigate('/')
     }
   };
@@ -52,7 +53,7 @@ const Login = () => {
         />
         <button type="submit">Login</button>
       </form>
-      {error && <p>{error}</p>}
+      {error && <p>{error}!</p>}
     </div>
   );
 };

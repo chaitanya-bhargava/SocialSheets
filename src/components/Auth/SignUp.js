@@ -22,7 +22,7 @@ const SignUp = () => {
       password,
     });
 
-    debugger
+    
 
     if (error) {
       setError(error.message);
@@ -53,7 +53,7 @@ const SignUp = () => {
         />
         <button type="submit">Sign Up</button>
       </form>
-      {error && <p>{error}</p>}
+      {error && <p>{error}!</p>}
       {message && <p>{message}</p>}
     </div>
   );

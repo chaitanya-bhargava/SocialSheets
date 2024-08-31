@@ -1,90 +1,166 @@
 .dashboard {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-  
-  h3 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .create-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .create-button:hover {
-    background-color: #45a049;
-  }
-  
-  .spreadsheet-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 30px; /* Added margin to create space between cards and opened spreadsheet */
-  }
-  
-  .spreadsheet-card {
-    background-color: #f0f0f0;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  
-  .spreadsheet-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  }
-  
-  .spreadsheet-card:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Modal form styling */
-  .modal-content form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Gap between form elements */
-  }
-  
-  .modal-content-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .modal-content input[type="text"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-  }
-  
-  .modal-content button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    align-self: flex-start; /* Align the button to the start */
-  }
-  
-  .modal-content button[type="submit"]:hover {
-    background-color: #45a049;
-  }
-  
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-header {
+  background-color: #45a049;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.dashboard-content {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.spreadsheet-section {
+  flex: 1;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.spreadsheet-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.create-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.create-button:hover {
+  background-color: #45a049;
+}
+
+/* Divider between the button and the list of spreadsheets */
+.divider {
+  border-top: 2px solid #45a049;
+  margin-bottom: 20px;
+}
+
+.spreadsheet-cards {
+  display: flex;
+  flex-direction: column; /* Stack the cards vertically */
+  gap: 20px;
+  margin-bottom: 30px; /* Added margin to create space between cards and opened spreadsheet */
+}
+
+.spreadsheet-card {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.spreadsheet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.spreadsheet-card:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal form styling */
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Gap between form elements */
+}
+
+.modal-content-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.modal-content input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.modal-content button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  align-self: flex-start; /* Align the button to the start */
+}
+
+.modal-content button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.dashboard {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-header {
+  background-color: #45a049;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.logout-button {
+  background-color: white;
+  color: #45a049;
+  padding: 10px 20px;
+  border: 2px solid #45a049;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #ff5a5a;
+  color: white;
+}
+
+.dashboard-content {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Other styles remain the same */

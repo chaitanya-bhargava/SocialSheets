@@ -61,6 +61,7 @@ const JoinedSpreadsheets = () => {
   return (
     <>
       <button className="create-button" onClick={openModal}>Join Spreadsheet</button>
+      <div className="divider"></div>
       <div className="spreadsheet-cards">
         {spreadsheets.map((item) => (
           <div

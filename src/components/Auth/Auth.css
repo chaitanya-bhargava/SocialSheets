@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #f7f7f7;
+    min-height: 97vh;
+    background-color: transparent;
   }
   
   .auth-box {
@@ -19,6 +19,7 @@
     margin-bottom: 20px;
     font-size: 1.5rem;
     text-align: center;
+    font-family: 'Arial';
   }
   
   .auth-box form {
@@ -52,5 +53,6 @@
     color: red;
     font-size: 0.9rem;
     text-align: center;
+    font-family: 'Arial';
   }
   
