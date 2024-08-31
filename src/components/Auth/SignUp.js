@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import supabase from '../../supabase';
 import { useNavigate } from "react-router";
+import { loginSuccess } from '../../actions/index';
+import { useDispatch } from 'react-redux';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -8,22 +10,26 @@ const SignUp = () => {
   const [error, setError] = useState(null);
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
     setError(null);
     setMessage('');
 
-    const { error } = await supabase.auth.signUp({
+    const { data,error } = await supabase.auth.signUp({
       email,
       password,
     });
+
+    debugger
 
     if (error) {
       setError(error.message);
     } else {
       setMessage('');
-      navigate('/login')
+      dispatch(loginSuccess(data.user));
+      navigate('/')
     }
   };
 

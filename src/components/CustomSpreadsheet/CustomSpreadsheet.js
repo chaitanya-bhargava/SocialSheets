@@ -1,8 +1,10 @@
 import Spreadsheet from 'react-spreadsheet';
 import { useState, useEffect} from 'react';
 import supabase from '../../supabase';
+import { useParams } from 'react-router-dom';
 
-const CustomSpreadsheet = ({spreadsheet_id}) => {
+const CustomSpreadsheet = ({joined}) => {
+  const { id } = useParams();
   const [cells, setCells] = useState([]);
   const [activeCell,setActiveCell] = useState({value:""});
   const [activeCellCoords,setActiveCellCoords] = useState({
@@ -28,7 +30,7 @@ const CustomSpreadsheet = ({spreadsheet_id}) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await supabase.from('spreadsheets').select('cells').eq('id',spreadsheet_id);
+      const { data } = await supabase.from('spreadsheets').select('cells').eq('id',id);
       debugger
       setActiveCell(data[0].cells.cells[0][0]);
       setCells(data[0].cells.cells);
@@ -69,7 +71,7 @@ const CustomSpreadsheet = ({spreadsheet_id}) => {
     };
 
     subscribeToCellChanges();
-  }, [spreadsheet_id]);  
+  }, [id]);  
   
   
 
@@ -90,7 +92,7 @@ const CustomSpreadsheet = ({spreadsheet_id}) => {
       if(cells.length>0){
         await supabase.from('spreadsheets').update({cells:{
           cells:cells
-        }}).eq('id',spreadsheet_id).select();
+        }}).eq('id',id).select();
       }
     }
     updateSupaBase();
@@ -108,7 +110,11 @@ const CustomSpreadsheet = ({spreadsheet_id}) => {
     }
   }
 
-  return <Spreadsheet data={cells} onActivate={handleChanges} onKeyDown={handleKeyChanges}/>;
+  return <>
+          <div>Spreadsheet ID: {id}</div>
+          <div>Share this with other users who want to join this spreadsheet!</div>
+          <Spreadsheet data={cells} onActivate={handleChanges} onKeyDown={handleKeyChanges}/>
+        </>
 }
 
 export default CustomSpreadsheet;

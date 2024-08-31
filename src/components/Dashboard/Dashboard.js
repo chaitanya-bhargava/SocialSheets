@@ -1,55 +1,16 @@
-import { useSelector } from "react-redux";
-import supabase from "../../supabase";
-import { useEffect, useState } from "react";
-import CustomSpreadsheet from "../CustomSpreadsheet/CustomSpreadsheet";
+import './Dashboard.css'; // Importing the CSS file
+import MySpreadsheets from "../MySpreadsheets/MySpreadsheets";
+import JoinedSpreadsheets from '../JoinedSpreadsheets/JoinedSpreadsheets';
 
 const Dashboard = () => {
-  const user = useSelector((state) => state.authReducer.user);
-  const [spreadsheets, setSpreadsheets] = useState([]);
-  const [isOpen,setIsOpen] = useState(false);
-  const [openSpreadsheet,setOpenSpreadsheet] = useState('');
-
-  const addSpreadsheetHandler = async () => {
-    const { data } = await supabase
-      .from("spreadsheets")
-      .insert([{}])
-      .select("id");
-    await supabase
-      .from("users_spreadsheets")
-      .insert([{ spreadsheet_id: data[0].id, user_id: user.id }]);
-    const response = await supabase
-      .from("users_spreadsheets")
-      .select("spreadsheet_id")
-      .eq("user_id", user.id);
-      debugger
-      setSpreadsheets(response.data);
-  };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await supabase
-        .from("users_spreadsheets")
-        .select("spreadsheet_id")
-        .eq("user_id", user.id);
-        debugger
-        setSpreadsheets(data);
-    };
-
-    fetchData();
-  }, [user]);
 
   return (
-    <div>
+    <div className="dashboard">
       <h1>Dashboard</h1>
-      <h3>Spreadsheets</h3>
-      <button onClick={addSpreadsheetHandler}>Add Spreadsheet</button>
-      {spreadsheets.map((item) => {
-        return <div onClick={()=>{
-            setIsOpen(true);
-            setOpenSpreadsheet(item.spreadsheet_id);
-        }}>{item.spreadsheet_id}</div>;
-      })}
-      {isOpen && <CustomSpreadsheet spreadsheet_id={openSpreadsheet}/>}
+      <h3>My Spreadsheets</h3>
+      <MySpreadsheets/>
+      <h3>Joined Spreadsheets</h3>
+      <JoinedSpreadsheets/>
     </div>
   );
 };
