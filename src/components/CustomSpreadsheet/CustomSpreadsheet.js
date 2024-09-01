@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Spreadsheet from 'react-spreadsheet';
 import supabase from '../../supabase';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './CustomSpreadsheet.css';
 
 const CustomSpreadsheet = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [cells, setCells] = useState([]);
   const [activeCell, setActiveCell] = useState({ value: null });
   const [activeCellCoords, setActiveCellCoords] = useState({
@@ -117,8 +118,11 @@ const CustomSpreadsheet = () => {
       <div className="spreadsheet-info">
         <div>Spreadsheet ID: {id}</div>
         <div>Share this with other users who want to join this spreadsheet!</div>
+        <button className="back-dashboard-button" onClick={() => navigate('/dashboard')}>
+          Back to Dashboard
+        </button>
       </div>
-        <Spreadsheet data={cells} onActivate={handleChanges} onKeyDown={handleKeyChanges} />
+      <Spreadsheet data={cells} onActivate={handleChanges} onKeyDown={handleKeyChanges} />
     </div>
   );
 };

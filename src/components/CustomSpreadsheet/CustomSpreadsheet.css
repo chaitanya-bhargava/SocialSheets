@@ -1,25 +1,34 @@
-  .spreadsheet-info {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 10px;
-  }
-  
-  .spreadsheet-info div {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #45a049;
-    font-family: 'Arial';
-    margin-bottom: 10px;
-  }
+.spreadsheet-info {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
 
-  .Spreadsheet{
-    margin-bottom: -10px;
-  }
-  
+.spreadsheet-info div {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #45a049;
+  font-family: 'Arial';
+  margin-bottom: 10px;
+}
 
-  
+.back-dashboard-button {
+  margin-top: 10px;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.back-dashboard-button:hover {
+  background-color: #555;
+}
