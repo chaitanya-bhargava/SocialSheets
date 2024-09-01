@@ -1,70 +1,87 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Social Sheets
 
-## Available Scripts
+Social Sheets, is a collaborative, web-based spreadsheet application designed for teams and individuals who need to work together in real-time. It allows multiple users to interact with the same spreadsheet simultaneously, making it ideal for businesses, project teams, educators, and anyone who needs a shared, powerful, and intuitive tool for data management and analysis. The platform emphasizes ease of use, with a familiar interface, robust security features, and responsive design, making it accessible from any device. Social Sheets is perfect for those who value collaboration, efficiency, and data security in their work.
 
-In the project directory, you can run:
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [x] **Core Spreadsheet Functionality** 
+- [x] **Real-Time Collaboration** 
+- [x] **User Authentication and Access Control** 
+- [x] **Data Persistence and Security**
+- [x] **Scalable Architecture**
+- [x] **Responsive User Interface**
+- [x] **Cross-Device Compatibility**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Deployment
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project, Social Sheets, has been deployed using [Vercel](https://vercel.com/), providing a fast, reliable, and globally distributed platform for hosting web applications. Vercel's seamless integration with GitHub ensures that every update pushed to the repository is automatically deployed, enabling continuous delivery and instant updates for users.
 
-### `npm run build`
+You can access the live version of the project at: [Social Sheets Live](https://social-sheets.vercel.app/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Screenshots
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Home](./screenshots/Home.png)
+![Dashboard](./screenshots/Dashboard.png)
+![Spreadsheet](./screenshots/Spreadsheet.png)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Demo
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Insert gif or link to demo
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Tech Stack
 
-## Learn More
+This project leverages the following technologies:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **[ReactJS](https://react.dev/):** Fast,Responsive Rendering and SEO friendly.
+- **[Supabase PostgresSQL](https://supabase.com/database):** Database server offering highly scalable and reliable instances.
+- **[React-Spreadsheet](https://www.npmjs.com/package/react-spreadsheet):** Performant spreasheet component used to integrate core spreadsheet functionality.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Environment Variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+To run this project, you will need to add the following environment variables to your .env file
 
-### Analyzing the Bundle Size
+`REACT_APP_SUPABASEURL`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+`REACT_APP_SUPABASEKEY`
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Run Locally
 
-### Advanced Configuration
+Clone the project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+  git clone https://github.com/chaitanya-bhargava/SocialSheets.git
+```
 
-### Deployment
+Go to the project directory
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+  cd SocialSheets
+```
 
-### `npm run build` fails to minify
+Install dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
+
+
+## Acknowledgements
+
+ - [react-spreadsheet](https://www.npmjs.com/package/react-spreadsheet)
+ - [Supabase](https://supabase.com/)
+ - [Vercel](https://vercel.com/)
+
