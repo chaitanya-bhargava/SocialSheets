@@ -28,12 +28,6 @@ You can access the live version of the project at: [Social Sheets Live](https://
 ![Dashboard](./screenshots/Dashboard.png)
 ![Spreadsheet](./screenshots/Spreadsheet.png)
 
-
-## Demo
-
-Insert gif or link to demo
-
-
 ## Tech Stack
 
 This project leverages the following technologies:
