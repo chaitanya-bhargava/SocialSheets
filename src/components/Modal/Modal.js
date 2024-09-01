@@ -1,13 +1,28 @@
-import './Modal.css'; // We'll define some basic styles for the modal
+import './Modal.css'; 
+import { useEffect } from 'react';
 
 const Modal = ({ show, onClose, children }) => {
+
+  useEffect(() => {
+    if (show) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [show]);
+
+
   if (!show) {
     return null;
   }
 
   const handleOutsideClick = (e) => {
     if (e.target.className === 'modal-overlay') {
-      onClose(); // Close modal when clicked outside the modal box
+      onClose();
     }
   };
 

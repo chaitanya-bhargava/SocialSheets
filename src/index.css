@@ -2,3 +2,8 @@ body{
     background-color: #abd19d;
     background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
 }
+
+* {
+    margin: 0;
+    padding: 0;
+}

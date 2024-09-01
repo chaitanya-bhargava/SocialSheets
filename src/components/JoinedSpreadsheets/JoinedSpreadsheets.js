@@ -28,7 +28,7 @@ const JoinedSpreadsheets = () => {
         .eq("user_id", user.id)
         .eq("owner",false);
       setSpreadsheets(response.data);
-      setSpreadsheetId(''); // Clear the input field after submission
+      setSpreadsheetId(''); 
       closeModal();
     }
   };
@@ -42,7 +42,7 @@ const JoinedSpreadsheets = () => {
   };
 
   const openSpreadsheetHandler = (spreadsheetId) => {
-    navigate(`/spreadsheet/${spreadsheetId}`); // Navigate to the spreadsheet page
+    navigate(`/spreadsheet/${spreadsheetId}`); 
   };
 
   useEffect(() => {

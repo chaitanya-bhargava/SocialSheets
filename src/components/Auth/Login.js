@@ -8,12 +8,15 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const [loading,setLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setError(null)
+    setLoading(true)
     dispatch(loginRequest());
 
     const { data, error } = await supabase.auth.signInWithPassword({
@@ -26,15 +29,16 @@ const Login = () => {
     if (error) {
       dispatch(loginFailure(error.message));
       setError(error.message)
+      setLoading(false)
     } else {
       dispatch(loginSuccess(data.user));
-      
+      setLoading(false)
       navigate('/')
     }
   };
 
   return (
-    <div>
+    <div className='auth'>
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <input
@@ -53,7 +57,8 @@ const Login = () => {
         />
         <button type="submit">Login</button>
       </form>
-      {error && <p>{error}!</p>}
+      {loading && <img className="loading" src="loading.gif" alt="loading"/>}
+      {error && <p className='error'>{error}</p>}
     </div>
   );
 };

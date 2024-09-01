@@ -52,7 +52,6 @@
   background-color: #45a049;
 }
 
-/* Divider between the button and the list of spreadsheets */
 .divider {
   border-top: 2px solid #45a049;
   margin-bottom: 20px;
@@ -60,9 +59,9 @@
 
 .spreadsheet-cards {
   display: flex;
-  flex-direction: column; /* Stack the cards vertically */
+  flex-direction: column; 
   gap: 20px;
-  margin-bottom: 30px; /* Added margin to create space between cards and opened spreadsheet */
+  margin-bottom: 30px; 
 }
 
 .spreadsheet-card {
@@ -88,7 +87,7 @@
 .modal-content form {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Gap between form elements */
+  gap: 15px; 
 }
 
 .modal-content-label {
@@ -111,7 +110,7 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
-  align-self: flex-start; /* Align the button to the start */
+  align-self: flex-start; 
 }
 
 .modal-content button[type="submit"]:hover {
@@ -163,4 +162,50 @@
   justify-content: space-between;
 }
 
-/* Other styles remain the same */
+@media screen and (max-width:650px){
+  .dashboard-header h1 {
+    font-size: 1.5rem;
+  }
+  .spreadsheet-section h3 {
+    font-size: 1rem;
+  }
+  .create-button{
+    font-size: 0.7rem;
+  }
+  .spreadsheet-card{
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width:550px){
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+  .spreadsheet-section h3 {
+    font-size: 1.5rem;
+  }
+  .create-button{
+    font-size: 1rem;
+  }
+  .spreadsheet-card{
+    font-size: 1rem;
+  }
+  .dashboard-content{
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width:350px){
+  .dashboard-header h1 {
+    font-size: 1.5rem;
+  }
+  .spreadsheet-section h3 {
+    font-size: 1rem;
+  }
+  .create-button{
+    font-size: 0.7rem;
+  }
+  .spreadsheet-card{
+    font-size: 0.7rem;
+  }
+}

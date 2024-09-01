@@ -1,58 +1,103 @@
 .auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 97vh;
-    background-color: transparent;
-  }
-  
-  .auth-box {
-    width: 300px;
-    padding: 20px;
-    margin: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  .auth-box h2 {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    text-align: center;
-    font-family: 'Arial';
-  }
-  
-  .auth-box form {
-    display: flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 97vh;
+  background-color: transparent;
+}
+
+.auth-box {
+  width: 300px;
+  padding: 20px;
+  margin: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.auth-box h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: 'Arial';
+}
+
+.auth-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-box input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.auth-box button {
+  background-color: #45a049;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.auth-box button:hover {
+  background-color: #3e8e41;
+}
+
+.auth-box p {
+  color: red;
+  font-size: 0.9rem;
+  text-align: center;
+  font-family: 'Arial';
+}
+
+.back-home-button {
+  margin-top: 20px;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.back-home-button:hover {
+  background-color: #555;
+}
+
+.error{
+  padding: 20px;
+}
+
+.auth{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.loading{
+  width: 15%;
+  margin: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .auth-container {
     flex-direction: column;
-    gap: 15px;
   }
-  
-  .auth-box input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
+}
+
+@media screen and (max-width: 350px) {
+  .auth-box {
+    width: 80%;
   }
-  
-  .auth-box button {
-    background-color: #45a049;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .auth-box button:hover {
-    background-color: #3e8e41;
-  }
-  
-  .auth-box p {
-    color: red;
-    font-size: 0.9rem;
-    text-align: center;
-    font-family: 'Arial';
-  }
-  
+}

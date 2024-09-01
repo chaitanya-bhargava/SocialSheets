@@ -10,7 +10,9 @@
 
 .header {
   text-align: center;
+  margin-top: 50px;
   margin-bottom: 50px;
+  padding: 20px;
 }
 
 .header h1 {
@@ -60,9 +62,9 @@
 }
 
 .feature-icon {
-  width: 200px; /* Set fixed size for the icons */
-  height: 200px; /* Maintain aspect ratio */
-  margin-bottom: 15px; /* Space between icon and heading */
+  width: 200px; 
+  height: 200px;
+  margin-bottom: 15px; 
 }
 
 .business{
@@ -80,4 +82,44 @@
 .feature p {
   font-size: 1rem;
   color: #555;
+}
+
+@media screen and (max-width:1300px){
+  .feature-icon{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+  }
+  .business{
+    height:100px !important;
+  }
+  .feature h3{
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  .feature p{
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width:900px){
+  .features{
+    flex-direction: column;
+    max-width: 450px;
+  }
+  .feature-icon{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+  }
+  .business{
+    height:150px !important;
+  }
+  .feature h3{
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  .feature p{
+    font-size: 1rem;
+  }
 }

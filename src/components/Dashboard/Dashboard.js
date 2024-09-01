@@ -10,9 +10,8 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Handle the logout logic here
-    dispatch(logout()); // Update the redux store
-    navigate('/'); // Redirect to the login page
+    dispatch(logout()); 
+    navigate('/'); 
   };
 
   return (

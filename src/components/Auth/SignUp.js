@@ -7,15 +7,22 @@ import { useDispatch } from 'react-redux';
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState(null);
-  const [message, setMessage] = useState('');
+  const [loading,setLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
     setError(null);
-    setMessage('');
+    setLoading(true)
+
+    if(confirmPassword!=password){
+      setError('Passwords do not match!');
+      setLoading(false)
+      return 
+    }
 
     const { data,error } = await supabase.auth.signUp({
       email,
@@ -26,15 +33,16 @@ const SignUp = () => {
 
     if (error) {
       setError(error.message);
+      setLoading(false)
     } else {
-      setMessage('');
       dispatch(loginSuccess(data.user));
+      setLoading(false)
       navigate('/')
     }
   };
 
   return (
-    <div>
+    <div className='auth'>
       <h2>Sign Up</h2>
       <form onSubmit={handleSignUp}>
         <input
@@ -51,10 +59,17 @@ const SignUp = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          required
+        />
         <button type="submit">Sign Up</button>
       </form>
-      {error && <p>{error}!</p>}
-      {message && <p>{message}</p>}
+      {loading && <img className="loading" src="loading.gif" alt="loading"/>}
+      {error && <p className='error'>{error}</p>}
     </div>
   );
 };

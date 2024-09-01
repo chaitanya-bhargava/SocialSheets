@@ -7,7 +7,7 @@ import './CustomSpreadsheet.css';
 const CustomSpreadsheet = () => {
   const { id } = useParams();
   const [cells, setCells] = useState([]);
-  const [activeCell, setActiveCell] = useState({ value: "" });
+  const [activeCell, setActiveCell] = useState({ value: null });
   const [activeCellCoords, setActiveCellCoords] = useState({
     row: 0,
     column: 0,
@@ -19,7 +19,7 @@ const CustomSpreadsheet = () => {
 
   const handleUpdate = (payload) => {
     console.log('Update received!', payload);
-    debugger
+    
     if(payload.new.id===id) setCells(payload.new.cells.cells);
   };
 
@@ -73,14 +73,14 @@ const CustomSpreadsheet = () => {
   }, [id]);
 
   const handleChanges = async ({ row, column }) => {
-    if (activeCell.value !== "") {
+    if (activeCell.value !== null) {
       setCells((prevCells) => {
         const updatedCells = [...prevCells];
         updatedCells[activeCellCoords.row][activeCellCoords.column] = activeCell;
         return updatedCells;
       });
     }
-    setActiveCell({ value: "" });
+    setActiveCell({ value: null });
     setActiveCellCoords({ row, column });
   };
 
@@ -98,6 +98,7 @@ const CustomSpreadsheet = () => {
   }, [activeCellCoords]);
 
   const handleKeyChanges = (event) => {
+    
     if (event.keyCode >= 48 && event.keyCode <= 57) {
       setActiveCell({ value: event.target.value });
     } else if (event.keyCode >= 65 && event.keyCode <= 90) {
@@ -105,6 +106,8 @@ const CustomSpreadsheet = () => {
     } else if (event.keyCode >= 97 && event.keyCode <= 122) {
       setActiveCell({ value: event.target.value });
     } else if (event.key === "Enter") {
+      setActiveCell({ value: event.target.value });
+    } else if (event.key === "Backspace") {
       setActiveCell({ value: event.target.value });
     }
   };

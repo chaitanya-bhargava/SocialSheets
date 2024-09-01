@@ -33,7 +33,7 @@ const MySpreadsheets = () => {
         .eq("owner",true);
         
       setSpreadsheets(response.data);
-      setSpreadsheetName(''); // Clear the input field after submission
+      setSpreadsheetName(''); 
       closeModal();
     }
   };
@@ -47,7 +47,7 @@ const MySpreadsheets = () => {
   };
 
   const openSpreadsheetHandler = (spreadsheetId) => {
-    navigate(`/spreadsheet/${spreadsheetId}`); // Navigate to the spreadsheet page
+    navigate(`/spreadsheet/${spreadsheetId}`); 
   };
 
   useEffect(() => {
