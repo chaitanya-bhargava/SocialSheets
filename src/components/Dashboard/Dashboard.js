@@ -4,13 +4,15 @@ import JoinedSpreadsheets from '../JoinedSpreadsheets/JoinedSpreadsheets';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../actions';
 import { useNavigate } from 'react-router-dom';
+import supabase from '../../supabase';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
+  const handleLogout = async() => {
     dispatch(logout()); 
+    let { error } = await supabase.auth.signOut()
     navigate('/'); 
   };
 

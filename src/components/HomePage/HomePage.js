@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './HomePage.css';
 import { useNavigate } from "react-router-dom";
+import supabase from "../../supabase";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../../actions";
 
 const HomePage = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+      const checkUser = async () => {
+        const { data: { user } } = await supabase.auth.getUser();
+        if(user){
+          dispatch(loginSuccess(user));
+        }
+      }
+      checkUser();
+    },[]);
 
     const getStartedHandler = () => {
         navigate('/auth');
