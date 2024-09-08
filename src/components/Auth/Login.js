@@ -35,6 +35,24 @@ const Login = () => {
     }
   };
 
+  const handleGuestLogin = async () => {
+    setLoading(true)
+    const guestEmail = `guest_${Math.random().toString(36).substring(2, 10)}@example.com`;
+  
+    const { data, error } = await supabase.auth.signUp({
+      email: guestEmail,
+      password: Math.random().toString(36).substring(2, 10),
+    });
+  
+    if (error) {
+      console.error('Error creating guest account:', error.message);
+      setLoading(false)
+    } else {
+      setLoading(false)
+      navigate('/dashboard')
+    }
+  };
+
   return (
     <div className='auth'>
       <h2>Login</h2>
@@ -54,6 +72,7 @@ const Login = () => {
           required
         />
         <button type="submit">Login</button>
+        <button type="button" className="guest-button" onClick={handleGuestLogin}> Guest Login </button>
       </form>
       {loading && <img className="loading" src="loading.gif" alt="loading"/>}
       {error && <p className='error'>{error}</p>}

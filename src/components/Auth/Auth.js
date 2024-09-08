@@ -25,22 +25,6 @@ const Auth = () => {
   const goHomeHandler = () => {
     navigate('/');
   };
-
-  const handleGuestLogin = async () => {
-    const guestEmail = `guest_${Math.random().toString(36).substring(7)}@example.com`;
-  
-    const { data, error } = await supabase.auth.signUp({
-      email: guestEmail,
-      password: Math.random().toString(36).substring(7),
-    });
-  
-    if (error) {
-      console.error('Error creating guest account:', error.message);
-    } else {
-      navigate('/dashboard')
-    }
-  };
-
   return (
     <div className="auth-container">
       <div className="auth-box">
@@ -49,12 +33,6 @@ const Auth = () => {
       <div className="auth-box">
         <Login />
       </div>
-      <button
-        className="guest-button"
-        onClick={handleGuestLogin}
-      >
-        Guest Login
-      </button>
       <button className="back-home-button" onClick={goHomeHandler}>Back to Home</button>
     </div>
   );
