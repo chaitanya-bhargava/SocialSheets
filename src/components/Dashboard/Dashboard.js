@@ -24,7 +24,7 @@ const Dashboard = () => {
         <button className="logout-button" onClick={handleLogout}>Logout</button>
       </div>
       <div >
-        <p className='dashboard-greeting'>Welcome <span>{user.email}</span>!</p>
+        <p className='dashboard-greeting'>Welcome <span>{user.email.substring(0,6)=="guest_" ? 'Guest' : user.email}</span>!</p>
         <div className="dashboard-content">
           <div className="spreadsheet-section">
             <h3>My Spreadsheets</h3>

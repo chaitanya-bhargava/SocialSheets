@@ -117,28 +117,6 @@
   background-color: #45a049;
 }
 
-.dashboard {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-.dashboard-header {
-  background-color: #45a049;
-  color: white;
-  padding: 15px;
-  text-align: center;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.dashboard-header h1 {
-  font-size: 2rem;
-  margin: 0;
-}
-
 .logout-button {
   background-color: white;
   color: #45a049;
@@ -155,13 +133,6 @@
   color: white;
 }
 
-.dashboard-content {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 .dashboard-greeting{
   margin: auto;
   padding: 20px;
@@ -173,6 +144,20 @@
 .dashboard-greeting span{
   font-weight: bolder;
   font-style: italic;
+}
+
+.guest-button {
+  background-color: #45a049;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.guest-button:hover {
+  background-color: #3e8e41;
 }
 
 @media screen and (max-width:650px){
