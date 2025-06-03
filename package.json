@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@silevis/reactgrid": "^4.1.8",
-    "@supabase/supabase-js": "^2.45.2",
+    "@supabase/supabase-js": "^2.49.9",
     "ajv": "8.8.2",
     "cra-template": "1.2.0",
     "jwt-decode": "^4.0.0",
