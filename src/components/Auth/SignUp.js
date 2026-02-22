@@ -1,49 +1,43 @@
 import { useState } from 'react';
-import supabase from '../../supabase';
-import { useNavigate } from "react-router";
-import { loginSuccess } from '../../actions/index';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
+import { loginSuccess } from '../../store/authSlice';
+import { signUp } from '../../services/authService';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState(null);
-  const [loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
     setError(null);
-    setLoading(true)
+    setLoading(true);
 
-    if(confirmPassword!=password){
+    if (confirmPassword !== password) {
       setError('Passwords do not match!');
-      setLoading(false)
-      return 
+      setLoading(false);
+      return;
     }
 
-    const { data,error } = await supabase.auth.signUp({
-      email,
-      password,
-    });
-
-    
+    const { data, error } = await signUp(email, password);
 
     if (error) {
       setError(error.message);
-      setLoading(false)
+      setLoading(false);
     } else {
       dispatch(loginSuccess(data.user));
-      setLoading(false)
-      navigate('/')
+      setLoading(false);
+      navigate('/');
     }
   };
 
   return (
-    <div className='auth'>
-      <h2>Sign Up</h2>
+    <>
       <form onSubmit={handleSignUp}>
         <input
           type="email"
@@ -66,11 +60,11 @@ const SignUp = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit" disabled={loading}>Sign Up</button>
       </form>
-      {loading && <img className="loading" src="loading.gif" alt="loading"/>}
+      {loading && <div className="spinner" />}
       {error && <p className='error'>{error}</p>}
-    </div>
+    </>
   );
 };
 

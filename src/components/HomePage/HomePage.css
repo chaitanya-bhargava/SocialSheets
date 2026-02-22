@@ -4,122 +4,137 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: transparent;
-  font-family: Arial, sans-serif;
+  padding: var(--space-xl);
+  animation: fadeIn var(--transition-normal);
 }
 
 .header {
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  padding: 20px;
+  margin-bottom: var(--space-2xl);
+  padding: var(--space-xl);
 }
 
 .header h1 {
-  font-size: 3rem;
-  color: #45a049;
-  margin-bottom: 10px;
+  font-size: 3.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-primary), #a371f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.02em;
 }
 
 .header p {
-  font-size: 1.2rem;
-  color: #333;
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .cta-button {
-  background-color: #45a049;
-  color: white;
-  padding: 15px 30px;
+  background: var(--accent-primary);
+  color: #fff;
+  padding: 14px 36px;
   border: none;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  cursor: pointer;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
   text-transform: uppercase;
-  margin-top: 30px;
-  transition: background-color 0.3s ease;
+  letter-spacing: 0.05em;
+  margin-top: var(--space-xl);
+  transition: all var(--transition-fast);
+  box-shadow: 0 0 20px rgba(88, 166, 255, 0.2);
 }
 
 .cta-button:hover {
-  background-color: #3e8e41;
+  background: var(--accent-hover);
+  box-shadow: 0 0 30px rgba(88, 166, 255, 0.35);
+  transform: translateY(-2px);
 }
 
 .features {
   display: flex;
-  justify-content: space-around;
-  margin-top: 60px;
-  width: 80%;
+  justify-content: center;
+  gap: var(--space-lg);
+  width: 100%;
+  max-width: 1000px;
 }
 
 .feature {
   flex: 1;
   text-align: center;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  position: relative;
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  transition: all var(--transition-normal);
+}
+
+.feature:hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-icon-wrapper {
+  width: 140px;
+  height: 140px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-lg);
+  overflow: hidden;
 }
 
 .feature-icon {
-  width: 200px; 
-  height: 200px;
-  margin-bottom: 15px; 
-}
-
-.business{
-  height: 150px !important;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
 }
 
 .feature h3 {
-  font-size: 1.5rem;
-  color: #45a049;
-  margin-bottom: 15px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  margin-bottom: var(--space-sm);
 }
 
 .feature p {
-  font-size: 1rem;
-  color: #555;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
-@media screen and (max-width:1300px){
-  .feature-icon{
-    width: 150px;
-    height: 150px;
-    margin-bottom: 10px;
-  }
-  .business{
-    height:100px !important;
-  }
-  .feature h3{
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-  }
-  .feature p{
-    font-size: 0.8rem;
-  }
-}
-
-@media screen and (max-width:900px){
-  .features{
+@media screen and (max-width: 900px) {
+  .features {
     flex-direction: column;
-    max-width: 450px;
+    max-width: 420px;
   }
-  .feature-icon{
-    width: 200px;
-    height: 200px;
-    margin-bottom: 15px;
+
+  .header h1 {
+    font-size: 2.5rem;
   }
-  .business{
-    height:150px !important;
+}
+
+@media screen and (max-width: 480px) {
+  .header h1 {
+    font-size: 2rem;
   }
-  .feature h3{
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-  }
-  .feature p{
+
+  .header p {
     font-size: 1rem;
+  }
+
+  .feature-icon-wrapper {
+    width: 110px;
+    height: 110px;
+  }
+
+  .feature-icon {
+    width: 90px;
+    height: 90px;
   }
 }
